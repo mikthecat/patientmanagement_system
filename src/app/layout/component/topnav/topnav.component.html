@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PATIENT</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+  <body>
     <header>
-        <a href="#" class="logo"><span>Patient</span>Management</a>
+      <a href="#" class="logo"><span>Patient</span>Management</a>
 
-        <ul class="navbar">
-            <a routerLink="/dashboard">Dashboard</a>
-            <a routerLink="/patient-management">Patients</a>
-            <a routerLink="/doctors-management">Doctors</a>
-            <li><a href="#">Username</a></li>
-            
-
-        </ul>
+      <ul class="navbar">
+        <a routerLink="/dashboard">Dashboard</a>
+        <a routerLink="/patient-management" *ngIf="isAdmin">Patients</a>
+        <a routerLink="/doctors-management" *ngIf="isAdmin">Doctors</a>
+        <a routerLink="/users-management" *ngIf="isAdmin">Users</a>
+        <a routerLink="/bookings-management" *ngIf="isAdmin">Bookings</a>
+        <a routerLink="/view-my-patients" *ngIf="isDoctor">My Patients</a>
+        <a routerLink="/usersview" *ngIf="isUser">Profile</a>
+      </ul>
+      <button class="btn btn-primary p-2" *ngIf="isLoggedIn" (click)="logout()">
+        Logout
+      </button>
     </header>
-</body>
+  </body>
 </html>
