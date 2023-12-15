@@ -11,12 +11,19 @@ export class TopnavComponent {
   isAdmin: boolean = false;
   isLoggedIn: boolean = false;
   isDoctor: boolean = false;
+<<<<<<< HEAD
   isUser: boolean = false;
 
   ngOnInit() {
     const sessionString = localStorage.getItem('session');
     const session = JSON.parse(sessionString as string);
 
+=======
+  ngOnInit() {
+    const sessionString = localStorage.getItem('session');
+    const session = JSON.parse(sessionString as string);
+
+>>>>>>> e413b4bfc2fa02686489153c33798a90163879ad
     if (session.isAdmin) {
       this.isAdmin = true;
     }
@@ -28,10 +35,13 @@ export class TopnavComponent {
     if (session.ok) {
       this.isLoggedIn = true;
     }
+<<<<<<< HEAD
 
     if (this.isAdmin === false && this.isDoctor === false) {
       this.isUser = true;
     }
+=======
+>>>>>>> e413b4bfc2fa02686489153c33798a90163879ad
   }
 
   logout() {
